@@ -49,7 +49,7 @@
             
             <!-- Contact Details Badges / Info -->
             <div class="d-flex flex-wrap justify-content-center gap-3 mb-4 text-light opacity-85">
-                <span><i class="fas fa-envelope text-info me-1"></i> bandaramihindu28@gmail.com</span>
+                <span><i class="fas fa-envelope text-info me-1"></i> bandaramihidu28@gmail.com</span>
                 <span><i class="fas fa-phone text-info me-1"></i> +94 76 6433093</span>
                 <span><i class="fas fa-map-marker-alt text-info me-1"></i> 115/2 Pitawala Road, Menikhinna</span>
             </div>
