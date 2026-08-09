@@ -1,8 +1,4 @@
-// api/index.php
-$request_uri = $_SERVER['REQUEST_URI'];
+<?php
 
-if ($request_uri === '/api/projects') {
-    // Return projects JSON
-} elseif ($request_uri === '/api/skills') {
-    // Return skills JSON
-}
+// Forward Vercel requests to Laravel's public/index.php
+require __DIR__ . '/../public/index.php';
