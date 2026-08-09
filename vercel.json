@@ -9,8 +9,7 @@
     },
     "routes": [
         {
-            "src": "/(.*\\.(?:css|js|png|jpg|jpeg|gif|svg|ico|pdf|webp|woff|woff2|ttf))",
-            "continue": true
+            "handle": "filesystem"
         },
         {
             "src": "/(.*)",
