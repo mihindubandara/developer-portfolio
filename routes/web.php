@@ -2,14 +2,15 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\AdminAuthController;
 use App\Http\Controllers\Api\PortfolioController;
 
-// Main Portfolio Frontend View
+// 1. Main Portfolio Frontend View (කවුරුත් බලන main site එක)
 Route::get('/', function () {
     return view('portfolio');
 });
 
-// 🚀 Portfolio REST API Routes (Frontend JS එකෙන් Data ගන්න)
+// 2. 🚀 Portfolio REST API Routes (Frontend JS එකෙන් Data ගන්න)
 Route::prefix('api')->group(function () {
     Route::get('/profile', [PortfolioController::class, 'getProfile']);
     Route::get('/skills', [PortfolioController::class, 'getSkills']);
@@ -18,8 +19,13 @@ Route::prefix('api')->group(function () {
     Route::post('/contact', [PortfolioController::class, 'sendMessage']);
 });
 
-// Admin Panel Routes
-Route::prefix('admin')->group(function () {
+// 3. 🔑 Admin Authentication Routes (Login/Logout සඳහා)
+Route::get('/admin/login', [AdminAuthController::class, 'showLoginForm'])->name('admin.login');
+Route::post('/admin/login', [AdminAuthController::class, 'login'])->name('admin.login.submit');
+Route::post('/admin/logout', [AdminAuthController::class, 'logout'])->name('admin.logout');
+
+// 4. 🛡️ Protected Admin Routes (Login වුණු Adminට විතරක් Access තියෙන කොටස)
+Route::prefix('admin')->middleware('auth')->group(function () {
     Route::get('/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
     
     // Projects CRUD
