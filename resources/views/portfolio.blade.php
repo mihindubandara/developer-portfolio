@@ -44,9 +44,9 @@
             <p class="lead text-info" id="profile-title"></p>
             <p class="mx-auto" style="max-width: 700px;" id="profile-about"></p>
             <div class="mt-4">
-                <a id="github-link" href="#" target="_blank" class="btn btn-outline-light me-2"><i class="fab fa-github"></i> GitHub</a>
-                <a id="linkedin-link" href="#" target="_blank" class="btn btn-outline-light me-2"><i class="fab fa-linkedin"></i> LinkedIn</a>
-                <a id="cv-link" href="#" target="_blank" class="btn btn-primary"><i class="fas fa-file-download"></i> Download CV</a>
+                <a id="github-link" href="https://github.com/mihindubandara" target="_blank" class="btn btn-outline-light me-2"><i class="fab fa-github"></i> GitHub</a>
+                <a id="linkedin-link" href="https://www.linkedin.com/in/mihindu-bandara-2256bb424" target="_blank" class="btn btn-outline-light me-2"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                <a id="cv-link" href="/cv.pdf" target="_blank" class="btn btn-primary"><i class="fas fa-file-download"></i> Download CV</a>
             </div>
         </div>
     </section>
