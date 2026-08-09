@@ -46,8 +46,9 @@
             <div class="mt-4">
                 <a id="github-link" href="https://github.com/mihindubandara" target="_blank" class="btn btn-outline-light me-2"><i class="fab fa-github"></i> GitHub</a>
                 <a id="linkedin-link" href="https://www.linkedin.com/in/mihindu-bandara-2256bb424" target="_blank" class="btn btn-outline-light me-2"><i class="fab fa-linkedin"></i> LinkedIn</a>
-                <a id="cv-link" href="{{ asset('cv.pdf') }}" target="_blank" class="btn btn-primary">
+                <a id="cv-link" href="/cv.pdf" target="_blank" class="btn btn-primary">
                 <i class="fas fa-file-download"></i> Download CV
+                </a>
                 </a>
             </div>
         </div>
@@ -124,7 +125,7 @@
                     document.getElementById('profile-about').innerText = res.data.about;
                     document.getElementById('github-link').href = res.data.github_url || '#';
                     document.getElementById('linkedin-link').href = res.data.linkedin_url || '#';
-                    document.getElementById('cv-link').href = res.data.cv_url || '#';
+                    document.getElementById('cv-link').href = '/cv.pdf';
                 }
             });
 
