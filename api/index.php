@@ -1,10 +1,9 @@
 <?php
 
-header('Content-Type: application/json');
+$requestUri = $_SERVER['REQUEST_URI'] ?? '/';
 
-echo json_encode([
-    'test' => true,
-    'uri' => $_SERVER['REQUEST_URI'] ?? null,
-    'method' => $_SERVER['REQUEST_METHOD'] ?? null,
-]);
-exit;
+if ($requestUri !== '/' && str_starts_with($requestUri, '/api/')) {
+    $_SERVER['REQUEST_URI'] = $requestUri;
+}
+
+require __DIR__ . '/../public/index.php';
