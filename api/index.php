@@ -1,9 +1,7 @@
 <?php
 
-$requestUri = $_SERVER['REQUEST_URI'] ?? '/';
+$route = $_GET['route'] ?? '/';
 
-if ($requestUri !== '/' && str_starts_with($requestUri, '/api/')) {
-    $_SERVER['REQUEST_URI'] = $requestUri;
-}
+$_SERVER['REQUEST_URI'] = $route;
 
 require __DIR__ . '/../public/index.php';
