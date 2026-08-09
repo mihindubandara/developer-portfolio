@@ -20,7 +20,8 @@ Route::prefix('api')->group(function () {
 });
 
 // 3. 🔑 Admin Authentication Routes (Login/Logout සඳහා)
-Route::get('/admin/login', [AdminAuthController::class, 'showLoginForm'])->name('admin.login');
+// ⚠️ ->name('login') ලෙස වෙනස් කළා (Laravel Auth Middleware එක හොයන්නේ මේ Name එකයි)
+Route::get('/admin/login', [AdminAuthController::class, 'showLoginForm'])->name('login');
 Route::post('/admin/login', [AdminAuthController::class, 'login'])->name('admin.login.submit');
 Route::post('/admin/logout', [AdminAuthController::class, 'logout'])->name('admin.logout');
 
