@@ -44,11 +44,14 @@
             <p class="lead text-info" id="profile-title"></p>
             <p class="mx-auto" style="max-width: 700px;" id="profile-about"></p>
             <div class="mt-4">
-                <a id="github-link" href="https://github.com/mihindubandara" target="_blank" class="btn btn-outline-light me-2"><i class="fab fa-github"></i> GitHub</a>
-                <a id="linkedin-link" href="https://www.linkedin.com/in/mihindu-bandara-2256bb424" target="_blank" class="btn btn-outline-light me-2"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                <a id="github-link" href="https://github.com/mihindubandara" target="_blank" class="btn btn-outline-light me-2">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
+                <a id="linkedin-link" href="https://www.linkedin.com/in/mihindu-bandara-2256bb424" target="_blank" class="btn btn-outline-light me-2">
+                    <i class="fab fa-linkedin"></i> LinkedIn
+                </a>
                 <a id="cv-link" href="/cv.pdf" target="_blank" class="btn btn-primary">
-    <i class="fas fa-file-download"></i> Download CV
-</a>
+                    <i class="fas fa-file-download"></i> Download CV
                 </a>
             </div>
         </div>
@@ -111,59 +114,75 @@
         </div>
     </section>
 
-    <!-- JavaScript - Fetching Data from Laravel REST API -->
+    <!-- JavaScript - REST API Fetching with Fallbacks & Flexible Formatting -->
     <script>
         const API_BASE = '/api';
+        const headers = { 'Accept': 'application/json' };
+
+        // Helper function to handle both { status, data } and direct Array/Object API responses
+        function extractData(res) {
+            if (!res) return null;
+            if (res.data !== undefined) return res.data;
+            return res;
+        }
 
         // 1. Fetch Profile Data
-        fetch(`${API_BASE}/profile`)
+        fetch(`${API_BASE}/profile`, { headers })
             .then(res => res.json())
             .then(res => {
-                if(res.status && res.data) {
-                    document.getElementById('profile-name').innerText = res.data.name;
-                    document.getElementById('profile-title').innerText = res.data.title;
-                    document.getElementById('profile-about').innerText = res.data.about;
-                    document.getElementById('github-link').href = res.data.github_url || '#';
-                    document.getElementById('linkedin-link').href = res.data.linkedin_url || '#';
-                    document.getElementById('cv-link').href = '/cv.pdf';
+                const data = extractData(res);
+                if (data) {
+                    if (data.name) document.getElementById('profile-name').innerText = data.name;
+                    if (data.title) document.getElementById('profile-title').innerText = data.title;
+                    if (data.about) document.getElementById('profile-about').innerText = data.about;
+                    if (data.github_url) document.getElementById('github-link').href = data.github_url;
+                    if (data.linkedin_url) document.getElementById('linkedin-link').href = data.linkedin_url;
                 }
-            });
+            })
+            .catch(err => console.error('Profile fetch error:', err));
 
         // 2. Fetch Skills Data
-        fetch(`${API_BASE}/skills`)
+        fetch(`${API_BASE}/skills`, { headers })
             .then(res => res.json())
             .then(res => {
-                if(res.status && res.data) {
+                const data = extractData(res);
+                const list = Array.isArray(data) ? data : [];
+                if (list.length > 0) {
                     const container = document.getElementById('skills-container');
-                    container.innerHTML = res.data.map(skill => `
+                    container.innerHTML = list.map(skill => `
                         <div class="col-md-4">
                             <div class="p-3 border rounded bg-white">
                                 <div class="d-flex justify-content-between mb-1">
-                                    <span class="fw-bold">${skill.name}</span>
-                                    <span>${skill.percentage}%</span>
+                                    <span class="fw-bold">${skill.name || 'Skill'}</span>
+                                    <span>${skill.percentage || 0}%</span>
                                 </div>
                                 <div class="progress" style="height: 8px;">
-                                    <div class="progress-bar bg-success" style="width: ${skill.percentage}%"></div>
+                                    <div class="progress-bar bg-success" style="width: ${skill.percentage || 0}%"></div>
                                 </div>
                             </div>
                         </div>
                     `).join('');
                 }
-            });
+            })
+            .catch(err => console.error('Skills fetch error:', err));
 
         // 3. Fetch Projects Data
-        fetch(`${API_BASE}/projects`)
+        fetch(`${API_BASE}/projects`, { headers })
             .then(res => res.json())
             .then(res => {
-                if(res.status && res.data) {
+                const data = extractData(res);
+                const list = Array.isArray(data) ? data : [];
+                if (list.length > 0) {
                     const container = document.getElementById('projects-container');
-                    container.innerHTML = res.data.map(project => `
+                    container.innerHTML = list.map(project => {
+                        const techs = project.technologies ? (typeof project.technologies === 'string' ? project.technologies.split(',') : project.technologies) : [];
+                        return `
                         <div class="col-md-6">
                             <div class="card h-100 p-4">
-                                <h4 class="fw-bold">${project.title}</h4>
-                                <p class="text-muted">${project.description}</p>
+                                <h4 class="fw-bold">${project.title || 'Project'}</h4>
+                                <p class="text-muted">${project.description || ''}</p>
                                 <div class="mb-3">
-                                    ${project.technologies.split(',').map(tech => `<span class="badge badge-tech p-2">${tech.trim()}</span>`).join('')}
+                                    ${techs.map(tech => `<span class="badge badge-tech p-2">${tech.trim()}</span>`).join('')}
                                 </div>
                                 <div>
                                     ${project.github_link ? `<a href="${project.github_link}" target="_blank" class="btn btn-sm btn-outline-dark"><i class="fab fa-github"></i> GitHub</a>` : ''}
@@ -171,27 +190,32 @@
                                 </div>
                             </div>
                         </div>
-                    `).join('');
+                        `;
+                    }).join('');
                 }
-            });
+            })
+            .catch(err => console.error('Projects fetch error:', err));
 
         // 4. Fetch Education Data
-        fetch(`${API_BASE}/education`)
+        fetch(`${API_BASE}/education`, { headers })
             .then(res => res.json())
             .then(res => {
-                if(res.status && res.data) {
+                const data = extractData(res);
+                const list = Array.isArray(data) ? data : [];
+                if (list.length > 0) {
                     const container = document.getElementById('education-container');
-                    container.innerHTML = res.data.map(edu => `
+                    container.innerHTML = list.map(edu => `
                         <div class="col-md-12">
                             <div class="p-4 border rounded bg-white">
-                                <h4 class="fw-bold">${edu.title}</h4>
-                                <h6 class="text-primary">${edu.institution} | <small class="text-muted">${edu.year}</small></h6>
+                                <h4 class="fw-bold">${edu.title || 'Education'}</h4>
+                                <h6 class="text-primary">${edu.institution || ''} | <small class="text-muted">${edu.year || ''}</small></h6>
                                 <p class="mb-0">${edu.description || ''}</p>
                             </div>
                         </div>
                     `).join('');
                 }
-            });
+            })
+            .catch(err => console.error('Education fetch error:', err));
 
         // 5. Submit Contact Form to API
         document.getElementById('contact-form').addEventListener('submit', function(e) {
@@ -212,14 +236,14 @@
             })
             .then(res => res.json())
             .then(res => {
-                if(res.status) {
-                    alertBox.className = 'alert alert-success mt-3';
-                    alertBox.innerText = res.message;
-                    document.getElementById('contact-form').reset();
-                } else {
-                    alertBox.className = 'alert alert-danger mt-3';
-                    alertBox.innerText = 'Failed to send message.';
-                }
+                alertBox.className = 'alert alert-success mt-3';
+                alertBox.innerText = res.message || 'Message sent successfully!';
+                alertBox.classList.remove('d-none');
+                document.getElementById('contact-form').reset();
+            })
+            .catch(err => {
+                alertBox.className = 'alert alert-danger mt-3';
+                alertBox.innerText = 'Failed to send message.';
                 alertBox.classList.remove('d-none');
             });
         });
