@@ -20,7 +20,7 @@
 </head>
 <body>
 
-    <!-- Navbar -->
+    <!-- Navbar Section -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
         <div class="container">
             <a class="navbar-brand fw-bold" href="#">Portfolio.API</a>
@@ -238,7 +238,8 @@
                         <!-- Alert Box for Ajax status -->
                         <div id="contact-alert" class="alert d-none" role="alert"></div>
 
-                        <form id="contact-form" action="{{ route('contact.send') }}" method="POST">
+                        <!-- Fixed route using url helper instead of named route -->
+                        <form id="contact-form" action="{{ url('/api/contact') }}" method="POST">
                             @csrf
                             <div class="mb-3">
                                 <label for="name" class="form-label fw-semibold">Your Name</label>

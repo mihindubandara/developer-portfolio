@@ -10,13 +10,13 @@ Route::get('/', function () {
     return view('portfolio');
 });
 
-
+// 2. Portfolio REST API Routes
 Route::prefix('api')->group(function () {
     Route::get('/profile', [PortfolioController::class, 'getProfile']);
     Route::get('/skills', [PortfolioController::class, 'getSkills']);
     Route::get('/projects', [PortfolioController::class, 'getProjects']);
     Route::get('/education', [PortfolioController::class, 'getEducation']);
-    Route::post('/contact', [PortfolioController::class, 'sendMessage']);
+    Route::post('/contact', [PortfolioController::class, 'sendMessage'])->name('contact.send');
 });
 
 // 3. Admin Authentication Routes
