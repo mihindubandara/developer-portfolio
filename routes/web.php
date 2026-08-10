@@ -4,8 +4,13 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AdminAuthController;
 use App\Http\Controllers\Api\PortfolioController;
-
+use Illuminate\Support\Facades\Response;
 // 1. Main Portfolio Frontend View
+
+Route::get('/favicon.ico', function () {
+    return Response::file(public_path('favicon.ico'));
+});
+
 Route::get('/', function () {
     return view('portfolio');
 });
