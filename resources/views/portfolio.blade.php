@@ -228,33 +228,33 @@
     </section>
 
     <!-- Contact Section -->
-   <!-- Contact Section -->
-<section class="py-5 bg-dark text-white" id="contact">
+  <!-- Contact Section -->
+<section class="py-5" style="background: linear-gradient(135deg, #1e293b, #0f172a);" id="contact">
     <div class="container">
         <h2 class="text-center fw-bold mb-1 text-white">GET IN TOUCH</h2>
         <p class="text-center text-light opacity-75 mb-4">Have a question or want to work together? Drop me a message!</p>
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <div class="card p-4 shadow-lg border-0 bg-secondary bg-opacity-10 text-white">
+                <div class="card p-4 shadow-lg border-0" style="background-color: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px);">
                     <!-- Alert Box for Ajax status -->
                     <div id="contact-alert" class="alert d-none" role="alert"></div>
 
-                    <!-- Fixed route using url helper instead of named route -->
+                    <!-- Contact Form -->
                     <form id="contact-form" action="{{ url('/api/contact') }}" method="POST">
                         @csrf
                         <div class="mb-3">
                             <label for="name" class="form-label fw-semibold text-light">Your Name</label>
-                            <input type="text" class="form-control bg-dark text-white border-secondary" id="name" name="name" required placeholder="Enter Your Name">
+                            <input type="text" class="form-control text-white border-secondary" style="background-color: #0f172a;" id="name" name="name" required placeholder="Enter Your Name">
                         </div>
                         <div class="mb-3">
                             <label for="email" class="form-label fw-semibold text-light">Your Email Address</label>
-                            <input type="email" class="form-control bg-dark text-white border-secondary" id="email" name="email" required placeholder="john@example.com">
+                            <input type="email" class="form-control text-white border-secondary" style="background-color: #0f172a;" id="email" name="email" required placeholder="john@example.com">
                         </div>
                         <div class="mb-3">
                             <label for="message" class="form-label fw-semibold text-light">Your Message</label>
-                            <textarea class="form-control bg-dark text-white border-secondary" id="message" name="message" rows="4" required placeholder="Write your message here..."></textarea>
+                            <textarea class="form-control text-white border-secondary" style="background-color: #0f172a;" id="message" name="message" rows="4" required placeholder="Write your message here..."></textarea>
                         </div>
-                        <button type="submit" id="contact-submit" class="btn btn-info w-100 py-2 fw-semibold text-dark">
+                        <button type="submit" id="contact-submit" class="btn btn-primary w-100 py-2 fw-semibold">
                             <i class="fas fa-paper-plane me-1"></i> Send Message
                         </button>
                     </form>
