@@ -243,7 +243,7 @@
                             @csrf
                             <div class="mb-3">
                                 <label for="name" class="form-label fw-semibold">Your Name</label>
-                                <input type="text" class="form-control" id="name" name="name" required placeholder="John Doe">
+                                <input type="text" class="form-control" id="name" name="name" required placeholder="John Snow">
                             </div>
                             <div class="mb-3">
                                 <label for="email" class="form-label fw-semibold">Your Email Address</label>
