@@ -4,13 +4,13 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AdminAuthController;
 use App\Http\Controllers\Api\PortfolioController;
-// 1. Main Portfolio Frontend View
 
+// 1. Main Portfolio Frontend View
 Route::get('/', function () {
     return view('portfolio');
 });
 
-// 2. Portfolio REST API Routes
+
 Route::prefix('api')->group(function () {
     Route::get('/profile', [PortfolioController::class, 'getProfile']);
     Route::get('/skills', [PortfolioController::class, 'getSkills']);
