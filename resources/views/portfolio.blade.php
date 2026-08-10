@@ -228,40 +228,41 @@
     </section>
 
     <!-- Contact Section -->
-    <section class="py-5 bg-white" id="contact">
-        <div class="container">
-            <h2 class="text-center fw-bold mb-1">GET IN TOUCH</h2>
-            <p class="text-center text-muted mb-4">Have a question or want to work together? Drop me a message!</p>
-            <div class="row justify-content-center">
-                <div class="col-md-8">
-                    <div class="card p-4 shadow-sm border">
-                        <!-- Alert Box for Ajax status -->
-                        <div id="contact-alert" class="alert d-none" role="alert"></div>
+   <!-- Contact Section -->
+<section class="py-5 bg-dark text-white" id="contact">
+    <div class="container">
+        <h2 class="text-center fw-bold mb-1 text-white">GET IN TOUCH</h2>
+        <p class="text-center text-light opacity-75 mb-4">Have a question or want to work together? Drop me a message!</p>
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card p-4 shadow-lg border-0 bg-secondary bg-opacity-10 text-white">
+                    <!-- Alert Box for Ajax status -->
+                    <div id="contact-alert" class="alert d-none" role="alert"></div>
 
-                        <!-- Fixed route using url helper instead of named route -->
-                        <form id="contact-form" action="{{ url('/api/contact') }}" method="POST">
-                            @csrf
-                            <div class="mb-3">
-                                <label for="name" class="form-label fw-semibold">Your Name</label>
-                                <input type="text" class="form-control" id="name" name="name" required placeholder="John Snow">
-                            </div>
-                            <div class="mb-3">
-                                <label for="email" class="form-label fw-semibold">Your Email Address</label>
-                                <input type="email" class="form-control" id="email" name="email" required placeholder="john@example.com">
-                            </div>
-                            <div class="mb-3">
-                                <label for="message" class="form-label fw-semibold">Your Message</label>
-                                <textarea class="form-control" id="message" name="message" rows="4" required placeholder="Write your message here..."></textarea>
-                            </div>
-                            <button type="submit" id="contact-submit" class="btn btn-primary w-100 py-2 fw-semibold">
-                                <i class="fas fa-paper-plane me-1"></i> Send Message
-                            </button>
-                        </form>
-                    </div>
+                    <!-- Fixed route using url helper instead of named route -->
+                    <form id="contact-form" action="{{ url('/api/contact') }}" method="POST">
+                        @csrf
+                        <div class="mb-3">
+                            <label for="name" class="form-label fw-semibold text-light">Your Name</label>
+                            <input type="text" class="form-control bg-dark text-white border-secondary" id="name" name="name" required placeholder="Enter Your Name">
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label fw-semibold text-light">Your Email Address</label>
+                            <input type="email" class="form-control bg-dark text-white border-secondary" id="email" name="email" required placeholder="john@example.com">
+                        </div>
+                        <div class="mb-3">
+                            <label for="message" class="form-label fw-semibold text-light">Your Message</label>
+                            <textarea class="form-control bg-dark text-white border-secondary" id="message" name="message" rows="4" required placeholder="Write your message here..."></textarea>
+                        </div>
+                        <button type="submit" id="contact-submit" class="btn btn-info w-100 py-2 fw-semibold text-dark">
+                            <i class="fas fa-paper-plane me-1"></i> Send Message
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- Footer -->
     <footer class="py-4 bg-black text-center text-secondary">
