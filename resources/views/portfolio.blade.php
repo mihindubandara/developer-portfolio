@@ -10,41 +10,36 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="icon" type="image/svg+xml" href="{{ asset('favicon.svg') }}">
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f8f9fa; color: #333; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f8f9fa; color: #1e293b; }
         .hero { background: linear-gradient(135deg, #1e293b, #0f172a); color: white; padding: 100px 0; }
-        .card { border: none; transition: transform 0.3s, box-shadow 0.3s; box-shadow: 0 4px 6px rgba(0,0,0,0.08); }
-        .card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.12); }
-        .badge-tech { background-color: #e2e8f0; color: #1e293b; margin-right: 5px; margin-bottom: 5px; display: inline-block; font-weight: 500; }
+        .card { border: none; transition: transform 0.3s, box-shadow 0.3s; box-shadow: 0 4px 10px rgba(0,0,0,0.05); border-radius: 10px; }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.08); }
+        .badge-tech { background-color: #e2e8f0; color: #334155; margin-right: 5px; margin-bottom: 5px; font-weight: 500; font-size: 0.85rem; }
         
-        /* Modern Skill Card Styles */
+        /* Modern Clean Skill Card Styles */
         .skill-card {
             background: #ffffff;
             border-radius: 12px;
             padding: 24px 15px;
-            border: 1px solid #edf2f7;
+            border: 1px solid #f1f5f9;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.04);
             transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
         }
         .skill-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 12px 20px rgba(0,0,0,0.08);
-            border-color: #cbd5e1;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+            border-color: #e2e8f0;
         }
         .skill-icon-wrapper {
-            width: 60px;
-            height: 60px;
+            width: 55px;
+            height: 55px;
             margin: 0 auto 12px;
             display: flex;
             align-items: center;
             justify-content: center;
             border-radius: 50%;
-            background: #f1f5f9;
+            background: #f8fafc;
             font-size: 1.8rem;
-            transition: all 0.3s ease;
-        }
-        .skill-card:hover .skill-icon-wrapper {
-            transform: scale(1.1);
         }
     </style>
 </head>
@@ -102,14 +97,11 @@
             <p class="text-center text-muted mb-4">Featured works and developments</p>
             <div class="row g-4" id="projects-container">
                 
-                <!-- Project 1: TaskFlow (Placed First) -->
+                <!-- Project 1: TaskFlow -->
                 <div class="col-md-6">
-                    <div class="card h-100 p-4 border-start border-primary border-4">
-                        <div class="d-flex justify-content-between align-items-start">
-                            <h4 class="fw-bold text-primary">TaskFlow - Task Management System</h4>
-                            <span class="badge bg-primary">Featured</span>
-                        </div>
-                        <p class="text-muted mt-2">A comprehensive task management application designed for tracking daily activities, managing task statuses, and organizing team workflows efficiently.</p>
+                    <div class="card h-100 p-4">
+                        <h4 class="fw-bold">TaskFlow - Task Management System</h4>
+                        <p class="text-muted">A comprehensive task management application designed for tracking daily activities, managing task statuses, and organizing team workflows efficiently.</p>
                         <div class="mb-3">
                             <span class="badge badge-tech p-2">Laravel</span>
                             <span class="badge badge-tech p-2">PHP</span>
@@ -117,8 +109,7 @@
                             <span class="badge badge-tech p-2">Bootstrap</span>
                         </div>
                         <div class="d-flex gap-2">
-                            <a href="https://github.com/mihindubandara/TaskFlow" target="_blank" class="btn btn-sm btn-outline-dark"><i class="fab fa-github"></i> GitHub</a>
-                            <!-- Live Link Placeholder -->
+                            <a href="https://github.com/mihindubandara/TaskFlow" target="_blank" class="btn btn-sm btn-outline-dark"><i class="fab fa-github"></i> GitHub Repository</a>
                             <a href="https://your-taskflow-live-demo.com" target="_blank" class="btn btn-sm btn-primary"><i class="fas fa-external-link-alt"></i> Live Demo</a>
                         </div>
                     </div>
@@ -174,42 +165,34 @@
                     </div>
                 </div>
 
-                <!-- Project 5 -->
-                <div class="col-md-6">
-                    <div class="card h-100 p-4">
-                        <h4 class="fw-bold">Game Zone Management System</h4>
-                        <p class="text-muted">Desktop management system for customer records, game bookings, payments and PDF reports.</p>
-                        <div class="mb-3">
-                            <span class="badge badge-tech p-2">Java</span>
-                            <span class="badge badge-tech p-2">Java Swing</span>
-                            <span class="badge badge-tech p-2">MySQL</span>
-                            <span class="badge badge-tech p-2">iText PDF</span>
-                        </div>
-                        <div>
-                            <a href="https://github.com/mihindubandara/Game_zone_management_system" target="_blank" class="btn btn-sm btn-outline-dark"><i class="fab fa-github"></i> GitHub Repository</a>
-                        </div>
-                    </div>
-                </div>
-
             </div>
         </div>
     </section>
 
-    <!-- Beautiful Skills Section -->
+    <!-- Technical Skills Section -->
     <section class="py-5 bg-white" id="skills">
         <div class="container">
             <h2 class="text-center fw-bold mb-1">TECHNICAL SKILLS</h2>
-            <p class="text-center text-muted mb-5">Languages, Frameworks & Tools I work with</p>
+            <p class="text-center text-muted mb-4">Languages, Frameworks & Tools I work with</p>
             
             <div class="row g-4 justify-content-center">
-                
                 <!-- Laravel -->
                 <div class="col-6 col-sm-4 col-md-3 text-center">
                     <div class="skill-card">
                         <div class="skill-icon-wrapper text-danger">
                             <i class="fab fa-laravel"></i>
                         </div>
-                        <h6 class="fw-bold mb-0">Laravel</h6>
+                        <h6 class="fw-bold mb-0 text-dark">Laravel</h6>
+                    </div>
+                </div>
+
+                <!-- React.js -->
+                <div class="col-6 col-sm-4 col-md-3 text-center">
+                    <div class="skill-card">
+                        <div class="skill-icon-wrapper text-info">
+                            <i class="fab fa-react"></i>
+                        </div>
+                        <h6 class="fw-bold mb-0 text-dark">React.js</h6>
                     </div>
                 </div>
 
@@ -219,7 +202,7 @@
                         <div class="skill-icon-wrapper" style="color: #777bb3;">
                             <i class="fab fa-php"></i>
                         </div>
-                        <h6 class="fw-bold mb-0">PHP</h6>
+                        <h6 class="fw-bold mb-0 text-dark">PHP</h6>
                     </div>
                 </div>
 
@@ -229,7 +212,7 @@
                         <div class="skill-icon-wrapper text-danger">
                             <i class="fab fa-java"></i>
                         </div>
-                        <h6 class="fw-bold mb-0">Java</h6>
+                        <h6 class="fw-bold mb-0 text-dark">Java</h6>
                     </div>
                 </div>
 
@@ -239,17 +222,17 @@
                         <div class="skill-icon-wrapper text-warning">
                             <i class="fab fa-js"></i>
                         </div>
-                        <h6 class="fw-bold mb-0">JavaScript</h6>
+                        <h6 class="fw-bold mb-0 text-dark">JavaScript</h6>
                     </div>
                 </div>
 
                 <!-- MySQL -->
                 <div class="col-6 col-sm-4 col-md-3 text-center">
                     <div class="skill-card">
-                        <div class="skill-icon-wrapper text-info">
+                        <div class="skill-icon-wrapper text-primary">
                             <i class="fas fa-database"></i>
                         </div>
-                        <h6 class="fw-bold mb-0">MySQL</h6>
+                        <h6 class="fw-bold mb-0 text-dark">MySQL</h6>
                     </div>
                 </div>
 
@@ -259,7 +242,7 @@
                         <div class="skill-icon-wrapper" style="color: #e34f26;">
                             <i class="fab fa-html5"></i>
                         </div>
-                        <h6 class="fw-bold mb-0">HTML5 & CSS3</h6>
+                        <h6 class="fw-bold mb-0 text-dark">HTML5 & CSS3</h6>
                     </div>
                 </div>
 
@@ -269,7 +252,7 @@
                         <div class="skill-icon-wrapper" style="color: #7952b3;">
                             <i class="fab fa-bootstrap"></i>
                         </div>
-                        <h6 class="fw-bold mb-0">Bootstrap</h6>
+                        <h6 class="fw-bold mb-0 text-dark">Bootstrap</h6>
                     </div>
                 </div>
 
@@ -279,7 +262,7 @@
                         <div class="skill-icon-wrapper" style="color: #f05032;">
                             <i class="fab fa-git-alt"></i>
                         </div>
-                        <h6 class="fw-bold mb-0">Git & GitHub</h6>
+                        <h6 class="fw-bold mb-0 text-dark">Git & GitHub</h6>
                     </div>
                 </div>
 
@@ -289,20 +272,19 @@
                         <div class="skill-icon-wrapper" style="color: #68217a;">
                             <i class="fas fa-code"></i>
                         </div>
-                        <h6 class="fw-bold mb-0">C#</h6>
+                        <h6 class="fw-bold mb-0 text-dark">C#</h6>
                     </div>
                 </div>
 
-                <!-- REST APIs -->
+                <!-- REST API -->
                 <div class="col-6 col-sm-4 col-md-3 text-center">
                     <div class="skill-card">
                         <div class="skill-icon-wrapper text-success">
                             <i class="fas fa-network-wired"></i>
                         </div>
-                        <h6 class="fw-bold mb-0">REST APIs</h6>
+                        <h6 class="fw-bold mb-0 text-dark">REST API</h6>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
@@ -314,17 +296,25 @@
             <div class="row g-4 justify-content-center">
                 <div class="col-md-10">
                     <div class="p-4 border rounded bg-white shadow-sm mb-3">
-                        <h4 class="fw-bold">Higher National Diploma in Information Technology (HNDIT)</h4>
-                        <h6 class="text-primary">SLIATE | <small class="text-muted">2023 - Present</small></h6>
+                        <h4 class="fw-bold mb-1">Higher National Diploma in Information Technology (HNDIT)</h4>
+                        <div class="fw-medium text-secondary mb-2">
+                            SLIATE &nbsp;|&nbsp; <small class="text-muted">2023 - Present</small>
+                        </div>
                         <p class="mb-0 text-muted">Focused on Software Engineering, Web Development, Database Systems, and Object-Oriented Programming.</p>
                     </div>
+
                     <div class="p-4 border rounded bg-white shadow-sm mb-3">
-                        <h4 class="fw-bold">G.C.E. Advanced Level – Commerce Stream</h4>
-                        <h6 class="text-primary">Medamahanuwara Secondary School | <small class="text-muted">2023</small></h6>
+                        <h4 class="fw-bold mb-1">G.C.E. Advanced Level – Commerce Stream</h4>
+                        <div class="fw-medium text-secondary">
+                            Medamahanuwara Secondary School &nbsp;|&nbsp; <small class="text-muted">2023</small>
+                        </div>
                     </div>
+
                     <div class="p-4 border rounded bg-white shadow-sm">
-                        <h4 class="fw-bold">G.C.E. Ordinary Level</h4>
-                        <h6 class="text-primary">Medamahanuwara Secondary School | <small class="text-muted">2019</small></h6>
+                        <h4 class="fw-bold mb-1">G.C.E. Ordinary Level</h4>
+                        <div class="fw-medium text-secondary">
+                            Medamahanuwara Secondary School &nbsp;|&nbsp; <small class="text-muted">2019</small>
+                        </div>
                     </div>
                 </div>
             </div>
