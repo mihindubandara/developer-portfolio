@@ -109,7 +109,7 @@
                             <span class="badge badge-tech p-2">Bootstrap</span>
                         </div>
                         <div class="d-flex gap-2">
-                            <a href="https://github.com/mihindubandara/TaskFlow" target="_blank" class="btn btn-sm btn-outline-dark"><i class="fab fa-github"></i> GitHub Repository</a>
+                            <a href="https://github.com/mihindubandara/Task_Management_System" target="_blank" class="btn btn-sm btn-outline-dark"><i class="fab fa-github"></i> GitHub Repository</a>
                             <a href="https://task-management-frontend-hazel.vercel.app" target="_blank" class="btn btn-sm btn-primary"><i class="fas fa-external-link-alt"></i> Live Demo</a>
                         </div>
                     </div>
