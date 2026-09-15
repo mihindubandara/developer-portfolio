@@ -83,7 +83,7 @@
             <div class="mt-4">
                 <a href="https://github.com/mihindubandara" target="_blank" class="btn btn-outline-light me-2 mb-2"><i class="fab fa-github"></i> GitHub</a>
                 <a href="https://www.linkedin.com/in/mihindu-bandara-2256bb424" target="_blank" class="btn btn-outline-light me-2 mb-2"><i class="fab fa-linkedin"></i> LinkedIn</a>
-                <a href="{{ asset('HMMBHerath.pdf') }}" download="HMMBHerath.pdf" class="btn btn-primary mb-2">
+                <a href="{{ asset('Mihindu_Bandara.pdf') }}" download="Mihindu_Bandara.pdf" class="btn btn-primary mb-2">
                 <i class="fas fa-file-download"></i> Download CV
                 </a>
             </div>
