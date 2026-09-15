@@ -339,7 +339,7 @@
                             </div>
                             <div class="mb-3">
                                 <label for="email" class="form-label fw-semibold text-dark">Your Email Address</label>
-                                <input type="email" class="form-control text-dark bg-white" style="border: 1.5px solid #0dcaf0;" id="email" name="email" required placeholder="john@example.com">
+                                <input type="email" class="form-control text-dark bg-white" style="border: 1.5px solid #0dcaf0;" id="email" name="email" required placeholder="Enter Your Email Address">
                             </div>
                             <div class="mb-3">
                                 <label for="message" class="form-label fw-semibold text-dark">Your Message</label>
