@@ -12,10 +12,40 @@
     <style>
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f8f9fa; color: #333; }
         .hero { background: linear-gradient(135deg, #1e293b, #0f172a); color: white; padding: 100px 0; }
-        .card { border: none; transition: transform 0.3s; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-        .card:hover { transform: translateY(-5px); }
-        .badge-tech { background-color: #e2e8f0; color: #1e293b; margin-right: 5px; margin-bottom: 5px; display: inline-block; }
-        .skill-icon { font-size: 2.2rem; margin-bottom: 10px; }
+        .card { border: none; transition: transform 0.3s, box-shadow 0.3s; box-shadow: 0 4px 6px rgba(0,0,0,0.08); }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.12); }
+        .badge-tech { background-color: #e2e8f0; color: #1e293b; margin-right: 5px; margin-bottom: 5px; display: inline-block; font-weight: 500; }
+        
+        /* Modern Skill Card Styles */
+        .skill-card {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 24px 15px;
+            border: 1px solid #edf2f7;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .skill-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 20px rgba(0,0,0,0.08);
+            border-color: #cbd5e1;
+        }
+        .skill-icon-wrapper {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: #f1f5f9;
+            font-size: 1.8rem;
+            transition: all 0.3s ease;
+        }
+        .skill-card:hover .skill-icon-wrapper {
+            transform: scale(1.1);
+        }
     </style>
 </head>
 <body>
@@ -30,8 +60,8 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
                     <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
                     <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                 </ul>
@@ -59,73 +89,8 @@
                 <a href="https://github.com/mihindubandara" target="_blank" class="btn btn-outline-light me-2 mb-2"><i class="fab fa-github"></i> GitHub</a>
                 <a href="https://www.linkedin.com/in/mihindu-bandara-2256bb424" target="_blank" class="btn btn-outline-light me-2 mb-2"><i class="fab fa-linkedin"></i> LinkedIn</a>
                 <a href="{{ asset('Mihindu_Bandara_CV.pdf?v=2') }}" download class="btn btn-primary mb-2">
-                <i class="fas fa-file-download"></i> Download CV
+                    <i class="fas fa-file-download"></i> Download CV
                 </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section class="py-5" id="skills">
-        <div class="container">
-            <h2 class="text-center fw-bold mb-4">Technical Skills</h2>
-            <div class="row g-4 justify-content-center">
-                <!-- Java -->
-                <div class="col-6 col-md-3 text-center">
-                    <div class="p-4 border rounded bg-white shadow-sm h-100">
-                        <i class="fab fa-java text-danger skill-icon"></i>
-                        <h5 class="fw-bold mb-0">Java</h5>
-                    </div>
-                </div>
-                <!-- PHP -->
-                <div class="col-6 col-md-3 text-center">
-                    <div class="p-4 border rounded bg-white shadow-sm h-100">
-                        <i class="fab fa-php text-primary skill-icon" style="color: #777bb3 !important;"></i>
-                        <h5 class="fw-bold mb-0">PHP</h5>
-                    </div>
-                </div>
-                <!-- Laravel -->
-                <div class="col-6 col-md-3 text-center">
-                    <div class="p-4 border rounded bg-white shadow-sm h-100">
-                        <i class="fab fa-laravel text-danger skill-icon"></i>
-                        <h5 class="fw-bold mb-0">Laravel</h5>
-                    </div>
-                </div>
-                <!-- JavaScript -->
-                <div class="col-6 col-md-3 text-center">
-                    <div class="p-4 border rounded bg-white shadow-sm h-100">
-                        <i class="fab fa-js text-warning skill-icon"></i>
-                        <h5 class="fw-bold mb-0">JavaScript</h5>
-                    </div>
-                </div>
-                <!-- MySQL -->
-                <div class="col-6 col-md-3 text-center">
-                    <div class="p-4 border rounded bg-white shadow-sm h-100">
-                        <i class="fas fa-database text-info skill-icon"></i>
-                        <h5 class="fw-bold mb-0">MySQL</h5>
-                    </div>
-                </div>
-                <!-- HTML & CSS -->
-                <div class="col-6 col-md-3 text-center">
-                    <div class="p-4 border rounded bg-white shadow-sm h-100">
-                        <i class="fab fa-html5 text-orange skill-icon" style="color: #e34f26 !important;"></i>
-                        <h5 class="fw-bold mb-0">HTML & CSS</h5>
-                    </div>
-                </div>
-                <!-- Git & GitHub -->
-                <div class="col-6 col-md-3 text-center">
-                    <div class="p-4 border rounded bg-white shadow-sm h-100">
-                        <i class="fab fa-git-alt text-dark skill-icon" style="color: #f05032 !important;"></i>
-                        <h5 class="fw-bold mb-0">Git & GitHub</h5>
-                    </div>
-                </div>
-                <!-- C# -->
-                <div class="col-6 col-md-3 text-center">
-                    <div class="p-4 border rounded bg-white shadow-sm h-100">
-                        <i class="fas fa-code text-purple skill-icon" style="color: #68217a !important;"></i>
-                        <h5 class="fw-bold mb-0">C#</h5>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -136,7 +101,30 @@
             <h2 class="text-center fw-bold mb-1">ACADEMIC PROJECTS</h2>
             <p class="text-center text-muted mb-4">Featured works and developments</p>
             <div class="row g-4" id="projects-container">
-                <!-- Project 1 -->
+                
+                <!-- Project 1: TaskFlow (Placed First) -->
+                <div class="col-md-6">
+                    <div class="card h-100 p-4 border-start border-primary border-4">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <h4 class="fw-bold text-primary">TaskFlow - Task Management System</h4>
+                            <span class="badge bg-primary">Featured</span>
+                        </div>
+                        <p class="text-muted mt-2">A comprehensive task management application designed for tracking daily activities, managing task statuses, and organizing team workflows efficiently.</p>
+                        <div class="mb-3">
+                            <span class="badge badge-tech p-2">Laravel</span>
+                            <span class="badge badge-tech p-2">PHP</span>
+                            <span class="badge badge-tech p-2">MySQL</span>
+                            <span class="badge badge-tech p-2">Bootstrap</span>
+                        </div>
+                        <div class="d-flex gap-2">
+                            <a href="https://github.com/mihindubandara/TaskFlow" target="_blank" class="btn btn-sm btn-outline-dark"><i class="fab fa-github"></i> GitHub</a>
+                            <!-- Live Link Placeholder -->
+                            <a href="https://your-taskflow-live-demo.com" target="_blank" class="btn btn-sm btn-primary"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
                 <div class="col-md-6">
                     <div class="card h-100 p-4">
                         <h4 class="fw-bold">Anonymous Police Complaint System</h4>
@@ -152,7 +140,8 @@
                         </div>
                     </div>
                 </div>
-                <!-- Project 2 -->
+
+                <!-- Project 3 -->
                 <div class="col-md-6">
                     <div class="card h-100 p-4">
                         <h4 class="fw-bold">T20 World Cup Management System</h4>
@@ -167,7 +156,8 @@
                         </div>
                     </div>
                 </div>
-                <!-- Project 3 -->
+
+                <!-- Project 4 -->
                 <div class="col-md-6">
                     <div class="card h-100 p-4">
                         <h4 class="fw-bold">Bookstore Management System</h4>
@@ -183,7 +173,8 @@
                         </div>
                     </div>
                 </div>
-                <!-- Project 4 -->
+
+                <!-- Project 5 -->
                 <div class="col-md-6">
                     <div class="card h-100 p-4">
                         <h4 class="fw-bold">Game Zone Management System</h4>
@@ -199,12 +190,125 @@
                         </div>
                     </div>
                 </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Beautiful Skills Section -->
+    <section class="py-5 bg-white" id="skills">
+        <div class="container">
+            <h2 class="text-center fw-bold mb-1">TECHNICAL SKILLS</h2>
+            <p class="text-center text-muted mb-5">Languages, Frameworks & Tools I work with</p>
+            
+            <div class="row g-4 justify-content-center">
+                
+                <!-- Laravel -->
+                <div class="col-6 col-sm-4 col-md-3 text-center">
+                    <div class="skill-card">
+                        <div class="skill-icon-wrapper text-danger">
+                            <i class="fab fa-laravel"></i>
+                        </div>
+                        <h6 class="fw-bold mb-0">Laravel</h6>
+                    </div>
+                </div>
+
+                <!-- PHP -->
+                <div class="col-6 col-sm-4 col-md-3 text-center">
+                    <div class="skill-card">
+                        <div class="skill-icon-wrapper" style="color: #777bb3;">
+                            <i class="fab fa-php"></i>
+                        </div>
+                        <h6 class="fw-bold mb-0">PHP</h6>
+                    </div>
+                </div>
+
+                <!-- Java -->
+                <div class="col-6 col-sm-4 col-md-3 text-center">
+                    <div class="skill-card">
+                        <div class="skill-icon-wrapper text-danger">
+                            <i class="fab fa-java"></i>
+                        </div>
+                        <h6 class="fw-bold mb-0">Java</h6>
+                    </div>
+                </div>
+
+                <!-- JavaScript -->
+                <div class="col-6 col-sm-4 col-md-3 text-center">
+                    <div class="skill-card">
+                        <div class="skill-icon-wrapper text-warning">
+                            <i class="fab fa-js"></i>
+                        </div>
+                        <h6 class="fw-bold mb-0">JavaScript</h6>
+                    </div>
+                </div>
+
+                <!-- MySQL -->
+                <div class="col-6 col-sm-4 col-md-3 text-center">
+                    <div class="skill-card">
+                        <div class="skill-icon-wrapper text-info">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <h6 class="fw-bold mb-0">MySQL</h6>
+                    </div>
+                </div>
+
+                <!-- HTML5 & CSS3 -->
+                <div class="col-6 col-sm-4 col-md-3 text-center">
+                    <div class="skill-card">
+                        <div class="skill-icon-wrapper" style="color: #e34f26;">
+                            <i class="fab fa-html5"></i>
+                        </div>
+                        <h6 class="fw-bold mb-0">HTML5 & CSS3</h6>
+                    </div>
+                </div>
+
+                <!-- Bootstrap -->
+                <div class="col-6 col-sm-4 col-md-3 text-center">
+                    <div class="skill-card">
+                        <div class="skill-icon-wrapper" style="color: #7952b3;">
+                            <i class="fab fa-bootstrap"></i>
+                        </div>
+                        <h6 class="fw-bold mb-0">Bootstrap</h6>
+                    </div>
+                </div>
+
+                <!-- Git & GitHub -->
+                <div class="col-6 col-sm-4 col-md-3 text-center">
+                    <div class="skill-card">
+                        <div class="skill-icon-wrapper" style="color: #f05032;">
+                            <i class="fab fa-git-alt"></i>
+                        </div>
+                        <h6 class="fw-bold mb-0">Git & GitHub</h6>
+                    </div>
+                </div>
+
+                <!-- C# -->
+                <div class="col-6 col-sm-4 col-md-3 text-center">
+                    <div class="skill-card">
+                        <div class="skill-icon-wrapper" style="color: #68217a;">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h6 class="fw-bold mb-0">C#</h6>
+                    </div>
+                </div>
+
+                <!-- REST APIs -->
+                <div class="col-6 col-sm-4 col-md-3 text-center">
+                    <div class="skill-card">
+                        <div class="skill-icon-wrapper text-success">
+                            <i class="fas fa-network-wired"></i>
+                        </div>
+                        <h6 class="fw-bold mb-0">REST APIs</h6>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
 
     <!-- Education Section -->
-    <section class="py-5" id="education">
+    <section class="py-5 bg-light" id="education">
         <div class="container">
             <h2 class="text-center fw-bold mb-4">Education</h2>
             <div class="row g-4 justify-content-center">
@@ -227,41 +331,39 @@
         </div>
     </section>
 
-   <!-- Contact Section -->
-<section class="py-5 bg-white" id="contact">
-    <div class="container">
-        <h2 class="text-center fw-bold mb-1 text-dark">GET IN TOUCH</h2>
-        <p class="text-center text-muted mb-4">Have a question or want to work together? Drop me a message!</p>
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card p-4 shadow-lg border bg-white">
-                    <!-- Alert Box for Ajax status -->
-                    <div id="contact-alert" class="alert d-none" role="alert"></div>
+    <!-- Contact Section -->
+    <section class="py-5 bg-white" id="contact">
+        <div class="container">
+            <h2 class="text-center fw-bold mb-1 text-dark">GET IN TOUCH</h2>
+            <p class="text-center text-muted mb-4">Have a question or want to work together? Drop me a message!</p>
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="card p-4 shadow-lg border bg-white">
+                        <div id="contact-alert" class="alert d-none" role="alert"></div>
 
-                    <!-- Contact Form -->
-                    <form id="contact-form" action="{{ url('/api/contact') }}" method="POST">
-                        @csrf
-                        <div class="mb-3">
-                            <label for="name" class="form-label fw-semibold text-dark">Your Name</label>
-                            <input type="text" class="form-control text-dark bg-white" style="border: 1.5px solid #0dcaf0;" id="name" name="name" required placeholder="Enter Your Name">
-                        </div>
-                        <div class="mb-3">
-                            <label for="email" class="form-label fw-semibold text-dark">Your Email Address</label>
-                            <input type="email" class="form-control text-dark bg-white" style="border: 1.5px solid #0dcaf0;" id="email" name="email" required placeholder="john@example.com">
-                        </div>
-                        <div class="mb-3">
-                            <label for="message" class="form-label fw-semibold text-dark">Your Message</label>
-                            <textarea class="form-control text-dark bg-white" style="border: 1.5px solid #0dcaf0;" id="message" name="message" rows="4" required placeholder="Write your message here..."></textarea>
-                        </div>
-                        <button type="submit" id="contact-submit" class="btn btn-primary w-100 py-2 fw-semibold">
-                            <i class="fas fa-paper-plane me-1"></i> Send Message
-                        </button>
-                    </form>
+                        <form id="contact-form" action="{{ url('/api/contact') }}" method="POST">
+                            @csrf
+                            <div class="mb-3">
+                                <label for="name" class="form-label fw-semibold text-dark">Your Name</label>
+                                <input type="text" class="form-control text-dark bg-white" style="border: 1.5px solid #0dcaf0;" id="name" name="name" required placeholder="Enter Your Name">
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label fw-semibold text-dark">Your Email Address</label>
+                                <input type="email" class="form-control text-dark bg-white" style="border: 1.5px solid #0dcaf0;" id="email" name="email" required placeholder="john@example.com">
+                            </div>
+                            <div class="mb-3">
+                                <label for="message" class="form-label fw-semibold text-dark">Your Message</label>
+                                <textarea class="form-control text-dark bg-white" style="border: 1.5px solid #0dcaf0;" id="message" name="message" rows="4" required placeholder="Write your message here..."></textarea>
+                            </div>
+                            <button type="submit" id="contact-submit" class="btn btn-primary w-100 py-2 fw-semibold">
+                                <i class="fas fa-paper-plane me-1"></i> Send Message
+                            </button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
     <!-- Footer -->
     <footer class="py-4 bg-black text-center text-secondary">
